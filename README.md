@@ -3,7 +3,7 @@
 Sistema web para administrar una ferretería con control de inventario, ventas y clientes.
 
 ## 🌐 Acceso
-**URL**: http://3.239.7.160/  
+**URL**: http://44.192.82.48/
 **Usuario**: `admin`  
 **Contraseña**: `admin123`
 
