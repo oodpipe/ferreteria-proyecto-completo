@@ -24,7 +24,7 @@ Sistema web para administrar una ferretería con control de inventario, ventas y
 **Código fuente**: https://github.com/oodpipe/ferreteria-proyecto-completo
 
 ## 👨‍💻 Autor
-[Tu Nombre] - Desarrollo Full Stack
+Felipe Espinoza - Desarrollo Full Stack
 
 ---
 *Proyecto de gestión comercial - 2025*
