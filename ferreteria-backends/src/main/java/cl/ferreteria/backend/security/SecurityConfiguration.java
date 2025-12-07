@@ -40,21 +40,14 @@ public class SecurityConfiguration {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-                // Endpoints públicos
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                
-                // Productos: lectura pública, escritura solo admin
                 .requestMatchers(HttpMethod.GET, "/api/productos/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/productos/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/api/productos/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/api/productos/**").hasRole("ADMIN")
-                
-                // Admin endpoints
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                
-                // Cualquier otra petición requiere autenticación
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -69,13 +62,11 @@ public class SecurityConfiguration {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // Orígenes permitidos
         List<String> allowedOrigins = Arrays.asList(
             "http://localhost:3000",
             "https://*.vercel.app"
         );
         
-        // Si hay variable de entorno, agrégala
         String corsEnv = System.getenv("CORS_ALLOWED_ORIGINS");
         if (corsEnv != null && !corsEnv.isEmpty()) {
             allowedOrigins = Arrays.asList(corsEnv.split(","));
