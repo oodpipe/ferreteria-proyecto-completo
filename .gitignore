@@ -1,0 +1,4 @@
+ferreteria-backends/target/
+*.jar
+ferreteria-frontend/ferreteria-frontend/node_modules/
+package-lock.json
