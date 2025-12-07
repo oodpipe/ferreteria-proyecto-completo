@@ -1,4 +1,4 @@
-# 🏪 Ferretería Don Pedro - Sistema de Gestión
+# 🏪 Ferretería  - Sistema de Gestión
 
 Sistema web para administrar una ferretería con control de inventario, ventas y clientes.
 
